@@ -1,2 +1,7 @@
-<h1>Docs#new</h1>
-<p>Find me in app/views/docs/new.html.erb</p>
+<%= form_with model: @doc, url: docs_url, method: :post do |form| %>
+ <%= form.label :name, 'Name' %>
+    <%= form.text_field :name %>
+    <%= form.label :text, 'Attachment' %>
+    <%= form.file_field :attachment %>
+    <%= form.submit 'Post' %>
+<%end%>

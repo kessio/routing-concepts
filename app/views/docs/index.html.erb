@@ -1,2 +1,12 @@
-<h1>Docs#index</h1>
-<p>Find me in app/views/docs/index.html.erb</p>
+
+<%= link_to "Add Pdf", new_doc_path %>
+
+<div>
+      <% @docs.each do |doc| %>  
+      <span><h2><%= doc.name %></h2><span>
+      <span> <%= link_to "Open pdf", doc.attachment_url %></span>
+      <% end %>
+</div>
+  
+   
+

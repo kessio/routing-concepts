@@ -14,8 +14,15 @@ class DocsController < ApplicationController
   def create
     @doc = Doc.new(doc_params)
 
-    if @doc.save
-      redirect_to docs_path, notice: "The #{@doc.name} has been uploaded"
+    respond_to do |format|
+      format.html do
+        if @doc.save
+          redirect_to docs_path
+        else
+          redirect_to new_doc_path
+        end
+      end
+    end
 
   end
 
